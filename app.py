@@ -26,7 +26,7 @@ def setup_filters(dispatcher: Dispatcher) -> None:
 
     # Chat turini aniqlash uchun klassik umumiy filtr
     # Filtrni handlers/users/__init__ -dagi har bir routerga alohida o'rnatish mumkin
-    dispatcher.message.filter(ChatPrivateFilter(chat_type=["private"]))
+    #dispatcher.message.filter(ChatPrivateFilter(chat_type=["private"]))
 
 
 async def setup_aiogram(dispatcher: Dispatcher, bot: Bot) -> None:
@@ -77,7 +77,7 @@ def main():
     dispatcher.startup.register(aiogram_on_startup_polling)
     dispatcher.shutdown.register(aiogram_on_shutdown_polling)
     asyncio.run(dispatcher.start_polling(bot, close_bot_session=True))
-    # allowed_updates=['message', 'chat_member']
+    allowed_updates=['message', 'chat_member']
 
 
 if __name__ == "__main__":
