@@ -6,6 +6,15 @@ from bs4 import BeautifulSoup
 from aiogram.filters import Command
 router = Router()
 
+@router.message(Command("online"))
+async def cmd_warmane(msg: types.Message):
+    async with aiohttp.ClientSession() as session:
+        async with session.get('http://battle-arena.uz/') as response:
+            text = await response.text(encoding="utf-8")
+            soup = BeautifulSoup(text, "html.parser")
+            price = soup.find_all("a")[2].get_text()[16:][:4]
+            await msg.reply(f"♻ online: {price}")
+
 @router.message(Command("warmane"))
 async def cmd_warmane(msg: types.Message):
     async with aiohttp.ClientSession() as session:
