@@ -66,11 +66,11 @@ async def aiogram_on_shutdown_polling(dispatcher: Dispatcher, bot: Bot):
 
 def main():
     """CONFIG"""
-    from data.config import BOT_TOKEN
+    #from data.config import BOT_TOKEN
     from aiogram.enums import ParseMode
     from aiogram.fsm.storage.memory import MemoryStorage
 
-    bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
+    bot = Bot(token="6577229866:AAFD0npx2ZgIB-yeChT1EehavSMiP5QG9-g", parse_mode=ParseMode.HTML)
     storage = MemoryStorage()
     dispatcher = Dispatcher(storage=storage)
 
