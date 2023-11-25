@@ -5,7 +5,10 @@ from aiogram.types import BotCommandScopeAllPrivateChats
 
 async def set_default_commands(bot: Bot):
     commands = [
-        BotCommand(command="/start", description="Botni ishga tushirish"),
-        BotCommand(command="/help", description="Yordam"),
+        BotCommand(command="/online", description="Battle-Arena.uz barcha onlayn o'yinchilarni ko'rsatish"),
+        BotCommand(command="/warmane", description="Barcha onlayn o'yinchilarni ko'rsatish"),
+        BotCommand(command="/circle", description="Barcha onlayn o'yinchilarni ko'rsatish"),
+        BotCommand(command="/sirus", description="Barcha onlayn o'yinchilarni ko'rsatish"),
+
     ]
     await bot.set_my_commands(commands=commands, scope=BotCommandScopeAllPrivateChats())
