@@ -7,7 +7,7 @@ from aiogram.filters import Command
 router = Router()
 
 @router.message(Command("online"))
-async def cmd_warmane(msg: types.Message):
+async def cmd_wowgame(msg: types.Message):
     async with aiohttp.ClientSession() as session:
         async with session.get('https://account.wow.game/ucp') as response:
             text = await response.text(encoding="utf-8")
@@ -16,7 +16,7 @@ async def cmd_warmane(msg: types.Message):
             await msg.reply(f"♻ WoW.GAME online: {o.strip()}")
 
 @router.message(Command("ba"))
-async def cmd_warmane(msg: types.Message):
+async def cmd_ba(msg: types.Message):
     async with aiohttp.ClientSession() as session:
         async with session.get('http://battle-arena.uz/') as response:
             text = await response.text(encoding="utf-8")
@@ -43,7 +43,7 @@ async def cmd_circle(msg: types.Message):
     await msg.reply(f"Tez orada")
 
 @router.message(Command("sirus"))
-async def cmd_circle(msg: types.Message):
+async def cmd_sirus(msg: types.Message):
     await msg.reply("Tez orada")
 
     
