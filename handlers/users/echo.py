@@ -48,7 +48,7 @@ async def cmd_circle(msg: types.Message):
             all = soup.find_all("div", {"class": "num"})
             all_p = soup.find("div", {"class": "count"})
             x1, x5, x100, fun = price[0].get_text(), price[1].get_text(), price[2].get_text(), price[3].get_text()
-            await msg.reply(f"♻ Circle online:\nX1 {x1[8:]}\nX5 {x5[8:]}\nX100 {x100[8:]}\nFun {fun[8:]}\nJami onlayn {all[1].get_text()}\nJami patch onlayn{all_p.get_text()})
+            await msg.reply(f"♻ Circle online:\nX1 {x1[8:]}\nX5 {x5[8:]}\nX100 {x100[8:]}\nFun {fun[8:]}\nJami onlayn {all[1].get_text()}\nJami patch onlayn {all_p.get_text()})
 
 @router.message(Command("sirus"))
 async def cmd_sirus(msg: types.Message):
