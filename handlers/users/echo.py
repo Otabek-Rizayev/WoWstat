@@ -40,7 +40,13 @@ async def cmd_warmane(msg: types.Message):
 
 @router.message(Command("circle"))
 async def cmd_circle(msg: types.Message):
-    await msg.reply(f"Tez orada")
+    async with aiohttp.ClientSession() as session:
+        async with session.get('https://wowcircle.net/stat.html') as response:
+            text = await response.text(encoding="utf-8")
+            soup = BeautifulSoup(text, "html.parser")
+            price = soup.find_all("div", {"class": "online"})
+            x1, x5, x100, fun = price[0].get_text(), price[1].get_text(), price[2].get_text(), price[3].get_text()
+            await msg.reply(f"♻ Circle online:\nX1 {x1[8:]}\nX5 {x5[8:]}\nX100 {x100[8:]}\nFun {fun[8:]}")
 
 @router.message(Command("sirus"))
 async def cmd_sirus(msg: types.Message):
