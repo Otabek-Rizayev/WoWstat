@@ -36,7 +36,7 @@ async def cmd_warmane(msg: types.Message):
             b = soup.find_all("span")[3].get_text()
             f = soup.find_all("span")[4].get_text()
             all = soup.find_all("span")[5].get_text()
-            await msg.reply(f"♻ Warmane online:\n• Onyxia {o}\n• Lordaeron {l}\n• Icecrown {i}\n• Blackrock {b}\n• Frostwolf {f}\nJami online: {all}")
+            await msg.reply(f"♻ Warmane online:\n• Onyxia {o}\n• Lordaeron {l}\n• Icecrown {i}\n• Blackrock {b}\n• Frostwolf {f}\nJami online {all}")
 
 @router.message(Command("circle"))
 async def cmd_circle(msg: types.Message):
@@ -48,7 +48,7 @@ async def cmd_circle(msg: types.Message):
             all = soup.find_all("div", {"class": "num"})
             all_p = soup.find("div", {"class": "count"})
             x1, x5, x100, fun = price[0].get_text(), price[1].get_text(), price[2].get_text(), price[3].get_text()
-            await msg.reply(f"♻ Circle online:\nX1 {x1[8:]}\nX5 {x5[8:]}\nX100 {x100[8:]}\nFun {fun[8:]}\nJami onlayn {all[1].get_text()}\nJami patch onlayn {all_p.get_text()})
+            await msg.reply(f"♻ Circle online:\n• X1 {x1[8:]}\n• X5 {x5[8:]}\n• X100 {x100[8:]}\n• Fun {fun[8:]}\nJami onlayn {all[1].get_text()}\nJami patchdagi onlayn {all_p.get_text()})
 
 @router.message(Command("sirus"))
 async def cmd_sirus(msg: types.Message):
