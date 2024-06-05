@@ -42,7 +42,7 @@ async def cmd_wowgame(msg: types.Message):
 @router.message(Command("official"))
 async def cmd_off(msg: types.Message):
     ranking = await off_func("https://www.wowprogress.com/realms/rank/eu")
-    await message.reply(ranking)
+    await msg.reply(ranking)
 
 @router.message(Command("warmane"))
 async def cmd_warmane(msg: types.Message):
