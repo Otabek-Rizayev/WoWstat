@@ -16,7 +16,6 @@ async def off_func(url):
     scraper = cloudscraper.create_scraper()
     headers = scraper.headers
     cookies = scraper.cookies
-
     async with aiohttp.ClientSession(headers=headers, cookies=cookies) as session:
         content = await fetch(session, "https://www.wowprogress.com/realms/rank/eu")
         soup = BeautifulSoup(content, "html.parser")
@@ -29,7 +28,7 @@ async def off_func(url):
             for i, tds in enumerate(trs):
                 meta = tds.find_all("td")
                 if i > 0 and i< 8:
-                        return f"ℹ {meta[1].text}| ♻️ {meta[5].text} | ⚔ {meta[2].text} | 🌐 {meta[3].text}")
+                    return f"ℹ {meta[1].text}| ♻️ {meta[5].text} | ⚔ {meta[2].text} | 🌐 {meta[3].text}")
 
 @router.message(Command("online"))
 async def cmd_wowgame(msg: types.Message):
