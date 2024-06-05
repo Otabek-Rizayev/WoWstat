@@ -17,7 +17,7 @@ async def off_func(url):
     headers = scraper.headers
     cookies = scraper.cookies
     async with aiohttp.ClientSession(headers=headers, cookies=cookies) as session:
-        content = await fetch(session, "https://www.wowprogress.com/realms/rank/eu")
+        content = await fetch(session, url)
         soup = BeautifulSoup(content, "html.parser")
         tr = soup.find_all("tr")
         td = soup.find_all("td")
@@ -41,7 +41,7 @@ async def cmd_wowgame(msg: types.Message):
 
 @router.message(Command("official"))
 async def cmd_off(msg: types.Message):
-    ranking = await off_func()
+    ranking = await off_func("https://www.wowprogress.com/realms/rank/eu")
     await message.reply(ranking)
 
 @router.message(Command("warmane"))
