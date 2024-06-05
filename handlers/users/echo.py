@@ -2,6 +2,7 @@ from aiogram import Router, types
 from aiogram import types
 import aiohttp
 import asyncio
+from scrape import off_func
 from bs4 import BeautifulSoup
 from aiogram.filters import Command
 router = Router()
@@ -15,14 +16,10 @@ async def cmd_wowgame(msg: types.Message):
             o = soup.find("div", {"class":"bg-[#121313] relative px-[9px] py-[5px] md:px-[26px] md:py-2 ml-auto text-xs md:text-2xl font-medium w-fit md:tracking-[3.84px] tracking-[1.92px] rounded-[7px] gap-[6px] flex items-center gradientBorderOnline"}).get_text()
             await msg.reply(f"♻ WoW.GAME online: {o.strip()}")
 
-@router.message(Command("ba"))
-async def cmd_ba(msg: types.Message):
-    async with aiohttp.ClientSession() as session:
-        async with session.get('http://battle-arena.uz/') as response:
-            text = await response.text(encoding="utf-8")
-            soup = BeautifulSoup(text, "html.parser")
-            price = soup.find_all("a")[2].get_text()[16:][:4]
-            await msg.reply(f"♻ Battle-Arena: {price}")
+@router.message(Command("official"))
+async def cmd_off(msg: types.Message):
+    ranking = await off_func()
+    await message.reply(ranking)
 
 @router.message(Command("warmane"))
 async def cmd_warmane(msg: types.Message):
