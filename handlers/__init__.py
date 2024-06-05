@@ -4,7 +4,7 @@ from filters import ChatPrivateFilter
 
 
 def setup_routers() -> Router:
-    from .users import help, echo
+    from .users import help, echo, scrape
     from .errors import error_handler
 
     router = Router()
